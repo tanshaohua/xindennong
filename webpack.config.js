@@ -2,11 +2,15 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  entry: './src/main.js',
+//   entry: './src/main.js',
+  entry: './src/lib/toast.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'toast.js',
+    library:'vueToast',
+    libraryTarget:'umd',
+    umdNamedDefine:true
   },
   module: {
     rules: [
@@ -96,7 +100,7 @@ if (process.env.NODE_ENV === 'production') {
       }
     }),
     new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
+      sourceMap: false, // 不打包map文件
       compress: {
         warnings: false
       }

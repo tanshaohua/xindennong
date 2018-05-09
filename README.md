@@ -1,4 +1,4 @@
-# y
+# xdn-vue-toast
 
 > A Vue.js project
 
